@@ -154,7 +154,6 @@ func newConfig() Config {
 		BlockedQueryResponse:     "hinfo",
 		BrokenImplementations: BrokenImplementationsConfig{
 			FragmentsBlocked: []string{
-				"cisco", "cisco-ipv6", "cisco-familyshield", "cisco-familyshield-ipv6",
 				"cleanbrowsing-adult", "cleanbrowsing-adult-ipv6", "cleanbrowsing-family", "cleanbrowsing-family-ipv6", "cleanbrowsing-security", "cleanbrowsing-security-ipv6",
 			},
 		},
@@ -940,7 +939,7 @@ func (config *Config) loadSource(proxy *Proxy, cfgSourceName string, cfgSource *
 	if cfgSource.RefreshDelay <= 0 {
 		cfgSource.RefreshDelay = 72
 	}
-	cfgSource.RefreshDelay = Min(168, Max(24, cfgSource.RefreshDelay))
+	cfgSource.RefreshDelay = Min(169, Max(25, cfgSource.RefreshDelay))
 	source, err := NewSource(
 		cfgSourceName,
 		proxy.xTransport,
